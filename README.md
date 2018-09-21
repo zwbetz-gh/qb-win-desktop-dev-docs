@@ -32,14 +32,15 @@ QB SDK documentation can be found at `C:\Program Files (x86)\Intuit\IDN\QBSDK13.
 
 ## Code examples
 
-Example usage of `SessionManager.cs` and `Query.cs`:
+Example usage of `SessionManager.cs`, `Query.cs`, and `Import.cs`:
 
 ```cs
+// Open connection and begin session
 SessionManager.Instance.OpenConnection();
 SessionManager.Instance.BeginSession();
+Console.WriteLine("Currently open QB filename: " + SessionManager.Instance.GetCurrentCompanyFileName());
 
-Console.WriteLine("The currently open QB company filename: " + SessionManager.Instance.GetCurrentCompanyFileName());
-
+// Query all employee names
 Query query = new Query();
 List<string> employeeNames = query.QueryEmployeeNames();
 
@@ -48,7 +49,11 @@ foreach (string name in employeeNames)
     Console.WriteLine(name);
 }
 
+// Import a list of timeseets
+Import import = new Import();
+import.ImportTimesheets(); 
+
+// End session and close connection
 SessionManager.Instance.EndSession();
 SessionManager.Instance.CloseConnection();
 ```
-
