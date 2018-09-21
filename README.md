@@ -51,7 +51,10 @@ foreach (string name in employeeNames)
 
 // Import a list of timeseets
 Import import = new Import();
-import.ImportTimesheets(); 
+// This is just an empty list
+// But let's assume you actually have a list of (custom) Timesheet objects
+List<Timesheet> tmList = new List<Timesheet>();
+import.ImportTimesheets(tmList); 
 
 // End session and close connection
 SessionManager.Instance.EndSession();

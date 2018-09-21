@@ -4,17 +4,13 @@ using QBFC13Lib;
 
 public class Import
 {
-    public void ImportTimesheets()
+    public void ImportTimesheets(List<Timesheet> tmList)
     {
         try
         {
             IMsgSetRequest requestSet = SessionManager.Instance.CreateMsgSetRequest();
             requestSet.Attributes.OnError = ENRqOnError.roeStop;
             ITimeTrackingAdd timeTrackingAdd;
-
-            // This is just an empty list
-            // But let's assume you actually have a list of (custom) Timesheet objects
-            List<Timesheet> tmList = new List<Timesheet>();
 
             foreach (Timesheet tm in tmList)
             {
