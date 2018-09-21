@@ -38,7 +38,7 @@ Example usage of `SessionManager.cs` and `Query.cs`:
 SessionManager.Instance.OpenConnection();
 SessionManager.Instance.BeginSession();
 
-Console.WriteLine("The currently open QB company filename: "+ SessionManager.Instance.GetCurrentCompanyFileName());
+Console.WriteLine("The currently open QB company filename: " + SessionManager.Instance.GetCurrentCompanyFileName());
 
 Query query = new Query();
 List<string> employeeNames = query.QueryEmployeeNames();

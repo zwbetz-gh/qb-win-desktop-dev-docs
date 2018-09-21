@@ -37,6 +37,7 @@ public sealed class SessionManager
     {
         if (!isConnectionOpen)
         {
+            // Args: App ID, App Name
             session.OpenConnection("", "YOUR_APP_NAME");
             isConnectionOpen = true;
         }
@@ -48,7 +49,8 @@ public sealed class SessionManager
         {
             if (!isSessionBegun)
             {
-                // Begin session with currently open QB filename
+                // By passing `""` for QB Filename, begin session with currently open QB Filename
+                // Args: QB Filename, ENOpenMode
                 session.BeginSession("", ENOpenMode.omDontCare);
                 isSessionBegun = true;
             }
@@ -83,7 +85,8 @@ public sealed class SessionManager
 
     public IMsgSetRequest CreateMsgSetRequest()
     {
-        return session.CreateMsgSetRequest(Constants.RequestCountry, Constants.RequestMajorVersion, Constants.RequestMinorVersion);
+        // Args: Request Country, QBFC Major Version, QBFC Minor Version
+        return session.CreateMsgSetRequest("US", 13, 0);
     }
 
     public IMsgSetResponse DoRequests(IMsgSetRequest requestSet)
